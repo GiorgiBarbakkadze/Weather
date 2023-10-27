@@ -1,12 +1,12 @@
 package com.gb.data.di
 
 import com.gb.data.Constants
+import com.gb.data.network.WeatherApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 val networkingModule = module {

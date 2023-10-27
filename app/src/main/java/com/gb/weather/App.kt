@@ -2,6 +2,7 @@ package com.gb.weather
 
 import android.app.Application
 import com.gb.data.di.networkingModule
+import com.gb.data.di.repoModule
 import org.koin.core.context.startKoin
 import org.koin.android.ext.koin.androidContext
 
@@ -15,4 +16,4 @@ class App: Application() {
         }
     }
 }
-val dataModules = listOf(networkingModule)
+val dataModules = listOf(networkingModule, repoModule)
