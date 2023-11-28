@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeatherTheme {
                 // A surface container using the 'background' color from the theme
+                //remove this comment
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -81,7 +82,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun HorizontalListView() {
-        val items = (1..50).toList()
+        val items = (1..10).toList()
 
         LazyRow(contentPadding = PaddingValues(horizontal = 10.dp, vertical = 20.dp)) {
             items(items) { item ->
