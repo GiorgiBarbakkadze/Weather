@@ -41,8 +41,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeatherTheme {
                 // A surface container using the 'background' color from the theme
+                //remove this comment
                 //remove this line
-                
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
