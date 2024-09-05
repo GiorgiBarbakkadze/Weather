@@ -44,6 +44,7 @@ class MainActivity : ComponentActivity() {
                 //remove this comment
                 //remove this line
                 //alkfnasldkfnlasflkjEFBFLkajsfalskfnlkafsasldkflasdkfhn
+                //bug fix
                 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
