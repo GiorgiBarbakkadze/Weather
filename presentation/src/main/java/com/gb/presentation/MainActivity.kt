@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 //remove this comment
                 //remove this line
-                //alkfnasldkfnlasflkjEFBFLkajsf
+                //alkfnasldkfnlasflkjEFBFLkajsfalskfnlkafsasldkflasdkfhn
                 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
