@@ -11,19 +11,19 @@ java {
 dependencies {
     implementation(project(":domain"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     //communication with rest API
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
 //    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:3.10.0")
 //    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3LogInterceptor"
 
 
     //for working with JSON
-    implementation("com.squareup.moshi:moshi:1.14.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("com.squareup.moshi:moshi:1.15.1")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.11.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
 
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
