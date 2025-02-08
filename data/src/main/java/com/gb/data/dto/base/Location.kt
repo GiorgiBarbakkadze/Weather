@@ -12,21 +12,8 @@ data class Location(
     @Json(name = "lon") val longitude: Float,
     @Json(name = "tz_id") val timeZoneName: String,
     @Json(name = "localtime_epoch") val dateAndTimeUnix: Int,
-    val localTime : String
+    val localtime : String
 
 ): MapFromDataToDomain<LocationEntity> {
-    override fun map() = LocationEntity(name, region, country, latitude, longitude, timeZoneName, dateAndTimeUnix, localTime)
+    override fun map() = LocationEntity(name, region, country, latitude, longitude, timeZoneName, dateAndTimeUnix, localtime)
 }
-
-
-
-//"location": {
-//    "name": "London",
-//    "region": "City of London, Greater London",
-//    "country": "United Kingdom",
-//    "lat": 51.52,
-//    "lon": -0.11,
-//    "tz_id": "Europe/London",
-//    "localtime_epoch": 1698050517,
-//    "localtime": "2023-10-23 9:41"
-//},

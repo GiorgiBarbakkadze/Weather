@@ -10,20 +10,33 @@ data class Current(
     @Json(name = "temp_c") val temperatureInCelsius: Float,
     @Json(name = "temp_f") val temperatureInFahrenheit: Float,
     @Json(name = "is_day") val isDayOrNight: Int,
-    val condition: Condition
+    val condition: Condition,
+    @Json(name = "wind_mph") val windInMph: Float,
+    @Json(name = "wind_kph") val windInKph: Float,
+    @Json(name = "wind_degree") val windDirectionInDegrees: Float,
+    @Json(name = "wind_dir") val windDirectionOnCompass: String,
+    val humidity: Int,
+    val cloud: Int,
+    @Json(name = "feelslike_c") val feelsLikeInCelsius: Float,
+    @Json(name = "feelslike_f") val feelsLikeInFahrenheit: Float,
+    @Json(name = "uv") val ultravioletIndex: Float
 
-): MapFromDataToDomain<CurrentEntity> {
-    override fun map() = CurrentEntity(localTimeWhenRealTimeUpdatedUnix, localTimeWhenRealTimeUpdated, temperatureInCelsius, temperatureInFahrenheit, isDayOrNight, condition.map())
+) : MapFromDataToDomain<CurrentEntity> {
+    override fun map() = CurrentEntity(
+        localTimeWhenRealTimeUpdatedUnix,
+        localTimeWhenRealTimeUpdated,
+        temperatureInCelsius,
+        temperatureInFahrenheit,
+        isDayOrNight,
+        condition.map(),
+        windInMph,
+        windInKph,
+        windDirectionInDegrees,
+        windDirectionOnCompass,
+        humidity,
+        cloud,
+        feelsLikeInCelsius,
+        feelsLikeInFahrenheit,
+        ultravioletIndex
+    )
 }
-
-//"current": {
-//    "last_updated_epoch": 1698049800,
-//    "last_updated": "2023-10-23 09:30",
-//    "temp_c": 10.0,
-//    "temp_f": 50.0,
-//    "is_day": 1,
-//    "condition": {
-//        "text": "Sunny",
-//        "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
-//        "code": 1000
-//    },

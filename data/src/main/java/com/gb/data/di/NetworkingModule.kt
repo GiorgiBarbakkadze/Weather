@@ -3,6 +3,8 @@ package com.gb.data.di
 import com.gb.data.Constants.BASE_URL
 import com.gb.data.network.WeatherApi
 import com.gb.domain.common.ApiKeyProvider
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,11 +12,18 @@ import org.koin.dsl.module
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 val networkingModule = module {
 
-    single { GsonConverterFactory.create() as Converter.Factory }
+    single {
+//        GsonConverterFactory.create() as Converter.Factory
+        Moshi.Builder()
+            .add(KotlinJsonAdapterFactory()) // Important for Kotlin support
+            .build()
+            .let { MoshiConverterFactory.create(it) as Converter.Factory }
+    }
     single { HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY) as Interceptor }
     single {
         OkHttpClient.Builder().apply {
@@ -49,9 +58,5 @@ val networkingModule = module {
 }
 
 fun provideApiKey(apiKey: String): String {
-    return apiKey;
-}
-
-fun provideAPiKeyChain() {
-
+    return apiKey
 }
