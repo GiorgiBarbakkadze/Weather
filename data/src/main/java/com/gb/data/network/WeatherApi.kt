@@ -1,11 +1,11 @@
 package com.gb.data.network
 
-import com.gb.data.Constants
-import com.gb.data.dto.RealTimeWeather
+import com.gb.data.dto.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface WeatherApi {
-    @GET("current.json?q=London&aqi=no")
-    suspend fun getCurrentWeatherFromApi(): Response<RealTimeWeather>
+    @GET("forecast.json?days=10&aqi=yes&alerts=no")
+    suspend fun getWeatherFromApi(@Query("q") location: String): Response<WeatherResponse>
 }

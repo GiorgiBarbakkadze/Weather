@@ -1,16 +1,16 @@
 package com.gb.domain.usecases
 
-import com.gb.domain.entities.CurrentWeather
+import com.gb.domain.entities.WeatherEntity
 import com.gb.domain.repositories.CurrentWeatherRepo
 import kotlinx.coroutines.flow.Flow
 import com.gb.domain.common.Result
 
 class GetRealtimeWeatherUseCase(private val currentWeatherRepo: CurrentWeatherRepo) :
-    BaseUseCase<Result<CurrentWeather>>() {
+    BaseUseCase<Result<WeatherEntity>>() {
 
-        fun executeUseCase(): Flow<Result<CurrentWeather>> {
+        fun executeUseCase(location: String): Flow<Result<WeatherEntity>> {
             return invoke {
-                currentWeatherRepo.getCurrentWeather()
+                currentWeatherRepo.getCurrentWeather(location)
             }
         }
 }

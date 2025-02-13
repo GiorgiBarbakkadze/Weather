@@ -1,5 +1,6 @@
 package com.gb.data.dto.base
 
+import com.gb.data.dto.AirQuality
 import com.gb.data.network.MapFromDataToDomain
 import com.gb.domain.entities.base.CurrentEntity
 import com.squareup.moshi.Json
@@ -19,9 +20,10 @@ data class Current(
     val cloud: Int,
     @Json(name = "feelslike_c") val feelsLikeInCelsius: Float,
     @Json(name = "feelslike_f") val feelsLikeInFahrenheit: Float,
-    @Json(name = "uv") val ultravioletIndex: Float
+    @Json(name = "uv") val ultravioletIndex: Float,
+    @Json(name = "air_quality") val airQuality: AirQuality,
 
-) : MapFromDataToDomain<CurrentEntity> {
+    ) : MapFromDataToDomain<CurrentEntity> {
     override fun map() = CurrentEntity(
         localTimeWhenRealTimeUpdatedUnix,
         localTimeWhenRealTimeUpdated,
@@ -37,6 +39,7 @@ data class Current(
         cloud,
         feelsLikeInCelsius,
         feelsLikeInFahrenheit,
-        ultravioletIndex
+        ultravioletIndex,
+        airQuality.map()
     )
 }

@@ -1,5 +1,6 @@
 package com.gb.domain.entities.base
 
+import com.gb.domain.entities.AirQualityEntity
 
 
 data class CurrentEntity(
@@ -17,6 +18,6 @@ data class CurrentEntity(
     val cloud: Int,
     val feelsLikeInCelsius: Float,
     val feelsLikeInFahrenheit: Float,
-    val ultravioletIndex: Float
-
+    val ultravioletIndex: Float,
+    val airQualityEntity: AirQualityEntity
 )
