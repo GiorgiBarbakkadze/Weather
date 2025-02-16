@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.gb.domain.entities.AstroEntity
-import com.gb.presentation.R
-import com.gb.presentation.databinding.FragmentAqiBinding
 import com.gb.presentation.databinding.FragmentAstroBinding
 
 class AstroFragment : Fragment() {
@@ -23,7 +21,7 @@ class AstroFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAstroBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
         return binding.root

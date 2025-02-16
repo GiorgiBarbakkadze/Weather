@@ -1,6 +1,5 @@
 package com.gb.domain.common
 
-import com.gb.domain.entities.ErrorResponse
 
 sealed class Result<out T : Any> {
     data class Success<out T : Any>(val data: T) : Result<T>()

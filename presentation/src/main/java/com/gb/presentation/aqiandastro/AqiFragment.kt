@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.gb.domain.entities.AirQualityEntity
-import com.gb.presentation.R
 import com.gb.presentation.databinding.FragmentAqiBinding
 
 class AqiFragment : Fragment() {

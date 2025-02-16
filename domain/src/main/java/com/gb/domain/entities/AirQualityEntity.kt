@@ -1,5 +1,4 @@
 package com.gb.domain.entities
-import java.io.Serial
 import java.io.Serializable
 
 
