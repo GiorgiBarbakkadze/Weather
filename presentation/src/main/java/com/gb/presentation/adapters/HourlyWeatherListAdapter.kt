@@ -23,7 +23,7 @@ class HourlyWeatherListAdapter(): ListAdapter<HourlyForecastEntity, HourlyWeathe
 
     class HourlyForecastViewHolder(private val binding: ItemHourlyForecastBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: HourlyForecastEntity) {
-            binding.time.text = item.time.toHours().toString()
+            binding.time.text = item.time.toHours()
             binding.hourlyWeatherDegree.text = "${item.tempC.roundToInt()}°"
             binding.hourlyWeatherIcon.loadImage(binding.root.context, item.condition.imageUrl)
         }

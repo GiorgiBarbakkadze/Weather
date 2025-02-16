@@ -19,6 +19,7 @@ data class AirQuality(
         nitrogenDioxide,
         ozone,
         sulfurDioxide,
-        particulateMatter2_5
+        particulateMatter2_5,
+        usEpaIndex
     )
 }

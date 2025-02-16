@@ -1,5 +1,7 @@
 package com.gb.domain.entities
 
+import java.io.Serializable
+
 data class AstroEntity(
     val sunrise: String,
     val sunset: String,
@@ -9,4 +11,4 @@ data class AstroEntity(
     val moonIllumination: Int,
     val isMoonUp: Int,
     val isSunUp: Int
-)
+): Serializable

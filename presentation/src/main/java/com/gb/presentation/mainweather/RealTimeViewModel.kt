@@ -20,7 +20,9 @@ class RealTimeViewModel(private val getRealtimeWeatherUseCase: GetRealtimeWeathe
     }
 
     fun getRealTimeWeather(location: String) {
+
         viewModelScope.launch {
+            _realTimeWeatherSharedFlow.emit(Result.Loading)
             getRealtimeWeatherUseCase.executeUseCase(location).collect {
                 _realTimeWeatherSharedFlow.emit(it)
             }

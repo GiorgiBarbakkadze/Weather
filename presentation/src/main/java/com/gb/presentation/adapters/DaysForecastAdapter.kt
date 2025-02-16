@@ -10,7 +10,7 @@ import com.gb.presentation.common.loadImage
 import com.gb.presentation.databinding.ItemDaysForecastBinding
 import kotlin.math.roundToInt
 
-class DaysForecastAdapter() :
+class DaysForecastAdapter :
     ListAdapter<ForecastDayEntity, DaysForecastAdapter.ForecastDayViewHolder>(
         DaysForecastDiffUtilCallBack()
     ) {

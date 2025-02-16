@@ -1,4 +1,8 @@
 package com.gb.domain.entities
+import java.io.Serial
+import java.io.Serializable
+
+
 
 data class AirQualityEntity(
     val carbonMonoxide: Double,
@@ -6,4 +10,6 @@ data class AirQualityEntity(
     val ozone: Double,
     val sulfurDioxide: Double,
     val particulateMatter2_5: Double,
-)
+    val useEpaIndex: Int
+): Serializable
+

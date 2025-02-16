@@ -30,15 +30,19 @@ constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
             }
         }
 
-    var descriptionAndDegree: String? = null
+    var description: String? = null
         set(value) {
             field = value
             value?.let {
-                binding.descriptionAndDegree.text = field
+                binding.description.text = field
             }
         }
 
-    init {
-//        binding.root.setBackgroundResource(R.drawable.round_corner_shape)
-    }
+    var degree: String? = null
+        set(value) {
+            field = value
+            value?.let {
+                binding.degree.text = field
+            }
+        }
 }
