@@ -1,4 +1,4 @@
-package com.gb.presentation.aqiandastro
+package com.gb.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,11 +12,6 @@ class AstroFragment : Fragment() {
 
     private lateinit var binding: FragmentAstroBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +48,7 @@ class AstroFragment : Fragment() {
 
         private const val ASTRO = "astro"
 
-        fun newInstance(astro: AstroEntity) =
+        fun newInstance(astro: AstroEntity?) =
             AstroFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ASTRO, astro)

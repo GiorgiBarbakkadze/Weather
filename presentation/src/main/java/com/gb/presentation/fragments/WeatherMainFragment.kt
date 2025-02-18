@@ -1,4 +1,4 @@
-package com.gb.presentation.mainweather
+package com.gb.presentation.fragments
 
 
 import android.os.Bundle
@@ -10,19 +10,20 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gb.domain.common.Result
 import com.gb.domain.entities.AirQualityEntity
 import com.gb.domain.entities.AstroEntity
 import com.gb.domain.entities.ForecastDayEntity
 import com.gb.domain.entities.HourlyForecastEntity
+import com.gb.presentation.R
 import com.gb.presentation.adapters.AQIAndAstroVPAdapter
 import com.gb.presentation.adapters.DaysForecastAdapter
 import com.gb.presentation.adapters.HourlyWeatherListAdapter
-import com.gb.presentation.aqiandastro.AqiFragment
-import com.gb.presentation.aqiandastro.AstroFragment
 import com.gb.presentation.common.hideKeyboard
 import com.gb.presentation.databinding.FragmentWeatherMainBinding
+import com.gb.presentation.viewmodels.RealTimeViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -62,6 +63,11 @@ class WeatherMainFragment : Fragment() {
                 return true
             }
         })
+    }
+
+    override fun onResume() {
+        realTimeWeatherViewModel.getRealTimeWeather("tbilisi")
+        super.onResume()
     }
 
     private fun observeRealTimeWeather() {
@@ -118,7 +124,12 @@ class WeatherMainFragment : Fragment() {
     }
 
     private fun setDaysForecatsAdapter(data: List<ForecastDayEntity>) {
-        val adapter = DaysForecastAdapter()
+        val adapter = DaysForecastAdapter {
+            val bundle = Bundle().apply {
+                putSerializable("forecastDayEntity", it)
+            }
+            findNavController().navigate(R.id.action_weatherMainFragment_to_dayWeatherDetailsFragment, bundle)
+        }
         binding.daysWeather.adapter = adapter
         binding.daysWeather.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)

@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/weatherMainFragment"
-        android:name="com.gb.presentation.mainweather.WeatherMainFragment"
+        android:name="com.gb.presentation.fragments.WeatherMainFragment"
         android:label="fragment_weather_main"
-        tools:layout="@layout/fragment_weather_main" />
+        tools:layout="@layout/fragment_weather_main" >
+        <action
+            android:id="@+id/action_weatherMainFragment_to_dayWeatherDetailsFragment"
+            app:destination="@id/dayWeatherDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayWeatherDetailsFragment"
+        android:name="com.gb.presentation.fragments.DayWeatherDetailsFragment"
+        android:label="fragment_day_weather_details"
+        tools:layout="@layout/fragment_day_weather_details" />
 </navigation>

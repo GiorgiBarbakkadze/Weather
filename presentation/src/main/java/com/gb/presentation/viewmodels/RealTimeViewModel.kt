@@ -1,4 +1,4 @@
-package com.gb.presentation.mainweather
+package com.gb.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

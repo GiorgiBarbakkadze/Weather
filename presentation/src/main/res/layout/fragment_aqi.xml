@@ -7,7 +7,7 @@
     android:background="@drawable/round_corner_shape"
     android:paddingHorizontal="12dp"
     android:paddingVertical="25dp"
-    tools:context=".aqiandastro.AqiFragment">
+    tools:context=".fragments.AqiFragment">
 
     <TextView
         android:id="@+id/ariQualityIndexDesc"

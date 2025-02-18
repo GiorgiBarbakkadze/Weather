@@ -10,7 +10,9 @@ import com.gb.presentation.common.loadImage
 import com.gb.presentation.databinding.ItemDaysForecastBinding
 import kotlin.math.roundToInt
 
-class DaysForecastAdapter :
+class DaysForecastAdapter(
+    private val onItemClick: (item: ForecastDayEntity) -> Unit
+) :
     ListAdapter<ForecastDayEntity, DaysForecastAdapter.ForecastDayViewHolder>(
         DaysForecastDiffUtilCallBack()
     ) {
@@ -26,15 +28,19 @@ class DaysForecastAdapter :
     }
 
     override fun onBindViewHolder(holder: ForecastDayViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onItemClick)
     }
 
     class ForecastDayViewHolder(private val binding: ItemDaysForecastBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ForecastDayEntity) {
+        fun bind(item: ForecastDayEntity, onItemClick: (item: ForecastDayEntity) -> Unit, ) {
             binding.date.text = item.date
             binding.DaysWeatherIcon.loadImage(binding.root.context, item.day.condition.imageUrl)
             binding.daysWeatherDegrees.text = "${item.day.maxTempC.roundToInt()}°/ ${item.day.minTempC.roundToInt()}°"
+
+            binding.root.setOnClickListener{
+                onItemClick(item)
+            }
         }
     }
 

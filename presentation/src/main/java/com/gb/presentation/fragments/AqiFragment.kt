@@ -1,4 +1,4 @@
-package com.gb.presentation.aqiandastro
+package com.gb.presentation.fragments
 
 import android.graphics.Color
 import android.graphics.PorterDuff

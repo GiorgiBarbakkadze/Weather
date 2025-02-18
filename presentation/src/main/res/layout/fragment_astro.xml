@@ -7,7 +7,7 @@
     android:background="@drawable/round_corner_shape"
     android:paddingHorizontal="12dp"
     android:paddingVertical="12dp"
-    tools:context=".aqiandastro.AstroFragment">
+    tools:context=".fragments.AstroFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
